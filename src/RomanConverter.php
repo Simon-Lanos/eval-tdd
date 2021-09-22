@@ -4,73 +4,44 @@ namespace App;
 
 class RomanConverter
 {
+
     public static function decimalToRoman(int $number): string
     {
-        $return = '';
+        if ($number >= 1000) {
+            return 'M' . self::decimalToRoman($number - 1000);
+        }
+
+        if ($number >= 500) {
+            return 'D' . self::decimalToRoman($number - 500);
+        }
+
+        if ($number >= 100) {
+            return 'C' . self::decimalToRoman($number - 100);
+        }
+
+        if ($number >= 50) {
+            return 'L' . self::decimalToRoman($number - 50);
+        }
+
+        if ($number >= 10) {
+            return 'X' . self::decimalToRoman($number - 10);
+        }
+
+        if ($number >= 9) {
+            return 'IX' . self::decimalToRoman($number - 9);
+        }
+
+        if ($number >= 5) {
+            return 'V' . self::decimalToRoman($number - 5);
+        }
+
+        if ($number >= 4) {
+            return 'IV' . self::decimalToRoman($number - 4);
+        }
+
         if ($number >= 1) {
-            $return .= 'I';
+            return 'I' . self::decimalToRoman($number - 1);
         }
-
-        if ($number >= 2) {
-            $return .= 'I';
-        }
-
-        if ($number >= 3) {
-            $return .= 'I';
-        }
-
-        if ($number === 4) {
-            return 'IV';
-        }
-
-        if ($number === 5) {
-            return 'V';
-        }
-
-        if ($number === 6) {
-            return self::decimalToRoman(5) . self::decimalToRoman(1);
-        }
-
-        if ($number === 9) {
-            return 'IX';
-        }
-
-        if ($number === 10) {
-            return 'X';
-        }
-
-        if ($number === 11) {
-            return self::decimalToRoman(10) . self::decimalToRoman(1);
-        }
-
-        if ($number === 16) {
-            return self::decimalToRoman(10) . self::decimalToRoman(6);
-        }
-
-        if ($number === 19) {
-            return self::decimalToRoman(10) . self::decimalToRoman(9);
-        }
-
-        if ($number === 20) {
-            return self::decimalToRoman(10) . self::decimalToRoman(10);
-        }
-
-        if ($number === 50) {
-            return 'L';
-        }
-
-        if ($number === 100) {
-            return 'C';
-        }
-
-        if ($number === 500) {
-            return 'D';
-        }
-
-        if ($number === 1000) {
-            return 'M';
-        }
-
-        return $return;
+        return '';
     }
 }
