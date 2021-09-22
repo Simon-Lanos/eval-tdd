@@ -23,4 +23,9 @@ class RomanConverterTest extends TestCase
         $this->assertEquals('D', RomanConverter::decimalToRoman(500));
         $this->assertEquals('M', RomanConverter::decimalToRoman(1000));
     }
+
+    public function testRomanToDecimal(): void
+    {
+        $this->assertEquals(0, RomanConverter::romanToDecimal(''));
+    }
 }

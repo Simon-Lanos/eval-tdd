@@ -44,4 +44,9 @@ class RomanConverter
         }
         return '';
     }
+
+    public static function romanToDecimal(string $roman): int
+    {
+        return 0;
+    }
 }
