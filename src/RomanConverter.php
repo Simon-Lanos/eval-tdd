@@ -6,16 +6,17 @@ class RomanConverter
 {
     public static function decimalToRoman(int $number): string
     {
-        if ($number === 1) {
-            return 'I';
+        $return = '';
+        if ($number >= 1) {
+            $return .= 'I';
         }
 
-        if ($number === 2) {
-            return 'II';
+        if ($number >= 2) {
+            $return .= 'I';
         }
 
-        if ($number === 3) {
-            return 'III';
+        if ($number >= 3) {
+            $return .= 'I';
         }
 
         if ($number === 4) {
@@ -27,7 +28,11 @@ class RomanConverter
         }
 
         if ($number === 6) {
-            return 'VI';
+            return self::decimalToRoman(5) . self::decimalToRoman(1);
+        }
+
+        if ($number === 9) {
+            return 'IX';
         }
 
         if ($number === 10) {
@@ -35,19 +40,19 @@ class RomanConverter
         }
 
         if ($number === 11) {
-            return 'XI';
+            return self::decimalToRoman(10) . self::decimalToRoman(1);
         }
 
         if ($number === 16) {
-            return 'XVI';
+            return self::decimalToRoman(10) . self::decimalToRoman(6);
         }
 
         if ($number === 19) {
-            return 'XIX';
+            return self::decimalToRoman(10) . self::decimalToRoman(9);
         }
 
         if ($number === 20) {
-            return 'XX';
+            return self::decimalToRoman(10) . self::decimalToRoman(10);
         }
 
         if ($number === 50) {
@@ -66,6 +71,6 @@ class RomanConverter
             return 'M';
         }
 
-        return '';
+        return $return;
     }
 }
